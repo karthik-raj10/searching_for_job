@@ -1,2 +1,4 @@
 flask
 werkzeug
+streamlit
+PyPDF2
