@@ -1,4 +1,4 @@
 flask
 werkzeug
-streamlit
+gunicorn
 PyPDF2
