@@ -6,7 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from PyPDF2 import PdfReader
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'
+app.secret_key = 'e4d909c290d0fb1ca068ffaddf22cbd0'  # strong secret key
 
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
