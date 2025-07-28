@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resume Ranking Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container text-center mt-5">
+    <h1>Welcome to Resume Ranking Portal</h1>
+    <p>
+      <a href="{{ url_for('signup', role='hr') }}" class="btn btn-primary m-2">HR Signup</a>
+      <a href="{{ url_for('signup', role='applicant') }}" class="btn btn-success m-2">Applicant Signup</a>
+    </p>
+    <p>
+      <a href="{{ url_for('login', role='hr') }}" class="btn btn-primary m-2">HR Login</a>
+      <a href="{{ url_for('login', role='applicant') }}" class="btn btn-success m-2">Applicant Login</a>
+    </p>
+  </div>
+</body>
+</html>

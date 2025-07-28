@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Applicants for {{ job.title }}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container mt-4">
+    <h2>Applicants for Job: {{ job.title }}</h2>
+    <a href="{{ url_for('hr_dashboard') }}" class="btn btn-secondary mb-3">Back to Dashboard</a>
+
+    {% if applicants %}
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Resume</th>
+            <th>ATS Score</th>
+            <th>Detected Issues</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for app in applicants %}
+          <tr>
+            <td>{{ app.full_name }}</td>
+            <td>{{ app.email }}</td>
+            <td>{{ app.phone }}</td>
+            <td>
+              <a href="{{ url_for('uploaded_file', filename=app.resume_filename) }}" target="_blank">
+                View Resume
+              </a>
+            </td>
+            <td>{{ app.ats_score }}%</td>
+            <td>
+              {% if app.mistakes %}
+                <ul>
+                {% for m in app.mistakes %}
+                  <li>{{ m }}</li>
+                {% endfor %}
+                </ul>
+              {% else %}
+                None
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No applicants for this job yet.</p>
+    {% endif %}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
